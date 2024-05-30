@@ -12,8 +12,6 @@ import Combine
 
 class MakeNicknameViewController: UIViewController {
     
-    @Published var inputNickName: String = ""
-    
     var publisher: NotificationCenter.Publisher!
     var cancellable: AnyCancellable!
     var cancellables = [AnyCancellable]()
