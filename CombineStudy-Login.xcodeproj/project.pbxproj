@@ -13,6 +13,7 @@
 		4ED006242C082A5D00D964B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ED006232C082A5D00D964B3 /* Assets.xcassets */; };
 		4ED006272C082A5D00D964B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ED006252C082A5D00D964B3 /* LaunchScreen.storyboard */; };
 		4ED0062F2C082A7F00D964B3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4ED0062E2C082A7F00D964B3 /* .gitignore */; };
+		4ED006362C082BF000D964B3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4ED006352C082BF000D964B3 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ED006362C082BF000D964B3 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +85,9 @@
 			dependencies = (
 			);
 			name = "CombineStudy-Login";
+			packageProductDependencies = (
+				4ED006352C082BF000D964B3 /* SnapKit */,
+			);
 			productName = "CombineStudy-Login";
 			productReference = 4ED006172C082A5C00D964B3 /* CombineStudy-Login.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +116,9 @@
 				Base,
 			);
 			mainGroup = 4ED0060E2C082A5C00D964B3;
+			packageReferences = (
+				4ED006342C082BF000D964B3 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 4ED006182C082A5C00D964B3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -353,6 +361,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4ED006342C082BF000D964B3 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4ED006352C082BF000D964B3 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4ED006342C082BF000D964B3 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4ED0060F2C082A5C00D964B3 /* Project object */;
 }
