@@ -7,7 +7,14 @@
 
 import UIKit
 
+import SnapKit
+import Combine
+
 class MakeNicknameViewController: UIViewController {
+    
+    var publisher: NotificationCenter.Publisher!
+    var cancellable: AnyCancellable!
+    var cancellables = [AnyCancellable]()
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -45,6 +52,8 @@ class MakeNicknameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        
+        self.setPublishers()
         self.configureHiearchy()
         self.setLayout()
         self.textFieldInitialSetup()
@@ -53,6 +62,18 @@ class MakeNicknameViewController: UIViewController {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         self.view.endEditing(true)
+    }
+    
+    private func setPublishers() {
+        guard let loginViewController = self.presentingViewController as? LoginViewController else {
+            fatalError("presentingViewController typeCasting failed")
+        }
+        //let loginView = loginViewController.rootView
+        
+        self.publisher = NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: self.nicknameTextField)
+        self.cancellable = self.publisher
+            .map({ ($0.object as? UITextField)?.text })
+            .assign(to: \.rootView.idTextField.text, on: loginViewController)
     }
     
     private func configureHiearchy() {
