@@ -18,7 +18,6 @@ class MakeNicknameViewController: UIViewController {
     var cancellable: AnyCancellable!
     var cancellables = [AnyCancellable]()
     
-    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.pretendardFont(ofSize: 23, weight: 500)
@@ -71,12 +70,12 @@ class MakeNicknameViewController: UIViewController {
         guard let loginViewController = self.presentingViewController as? LoginViewController else {
             fatalError("presentingViewController typeCasting failed")
         }
-        let loginView = loginViewController.rootView
+        //let loginView = loginViewController.rootView
         
         self.publisher = NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: self.nicknameTextField)
         self.cancellable = self.publisher
             .map({ ($0.object as? UITextField)?.text })
-            .assign(to: \.idTextField.text, on: loginView)
+            .assign(to: \.rootView.idTextField.text, on: loginViewController)
     }
     
     private func configureHiearchy() {
